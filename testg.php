@@ -4,26 +4,6 @@
 </script>
 <?php
 
-<body onload="loadDemo()">
-
-<h1>HTML5 google定位</h1>
-<p id="status">瀏覽器不支援HTML5 google定位</p>
-
-<h2>当前位置：</h2>
-<table border="1">
-<tr>
-<td width="40" scope="col">纬度</th>
-<td width="114" id="latitude">?</td>
-</tr>
-<tr>
-<td>经度</td>
-<td id="longitude">?</td>
-</tr>
-<tr>
-<td>准确度</td>
-<td id="accuracy">?</td>
-</tr>
-</table>
 echo "[{ lat:'".$latitude."',long:'".$longitude;
 
 ?>
