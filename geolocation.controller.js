@@ -3,7 +3,7 @@ app.controller("g",geolocationController);
 function geolocationController($scope,$http)
 {
 	var vm=this;
-	alert (1);
+	
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function(position) {
                 var pos = {
@@ -12,7 +12,7 @@ function geolocationController($scope,$http)
                 };
 		    vm.lat=position.coords.latitude;
 		    vm.lng=position.coords.longitude;
-                $scope.map.setCenter(pos);
+            
             }, function() {
                 handleLocationError(true, infoWindow, map.getCenter());
             });
