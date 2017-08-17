@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+	<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com https://csi.gstatic.com;
+script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.gstatic.com https://*.googleapis.com;
+style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+font-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com;
+media-src *;
+img-src 'self' 'unsafe-inline' https://*.gstatic.com https://*.googleapis.com; 
+connect-src *;">
+  </head>
+  <body>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBnj7gItxnTy1EfD4bMMYb_8oBsEb4_xoQ"></script>
+	<div>
+		<div id="map" style="height:300px; width:100%"></div><br />
+		<button id="btnGetGeolocation" onclick="javascript: funGetLocation();">Get Location</button><br />
+		<span id="geolocation"></span>
+	</div>
+    <script>
+		   var onSuccess = function (position) {
+						alert('Latitude: ' + position.coords.latitude + '\n' +
+					'Longitude: ' + position.coords.longitude + '\n' +
+					'Altitude: ' + position.coords.altitude + '\n' +
+					'Accuracy: ' + position.coords.accuracy + '\n' +
+					'Altitude Accuracy: ' + position.coords.altitudeAccuracy + '\n' +
+					'Heading: ' + position.coords.heading + '\n' +
+					'Speed: ' + position.coords.speed + '\n' +
+					'Timestamp: ' + position.timestamp + '\n');
+
+			var element = document.getElementById('geolocation');
+			element.innerHTML = 'Latitude: ' + position.coords.latitude + '<br />' +
+								'Longitude: ' + position.coords.longitude + '<br />' +
+								'<hr />' + element.innerHTML;
+
+			// 放入Google地圖
+			getMap(position.coords.latitude, position.coords.longitude);
+		};
+
+		// onError Callback receives a PositionError object
+		//
+		function onError(error) {
+			alert('code: ' + error.code + '\n' +
+					'message: ' + error.message + '\n');
+		}
+
+		function funGetLocation()
+		{
+			// 是否啟用高精確定位：是，等待GPS啟動與回傳訊息時間:30秒，該GPS保存時間：5秒
+			var options = { enableHighAccuracy: true, timeout: 30000, maximumAge: 5000,};
+			navigator.geolocation.getCurrentPosition(onSuccess, onError, options);
+		}
+
+		function getMap(latitude, longitude) {
+
+			var mapOptions = {
+				center: new google.maps.LatLng(0, 0),
+				zoom: 1,
+				mapTypeId: google.maps.MapTypeId.ROADMAP
+			};
+
+			map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+			var latLong = new google.maps.LatLng(latitude, longitude);
+			var marker = new google.maps.Marker({position: latLong});
+
+			marker.setMap(map);
+			map.setZoom(15);
+			map.setCenter(marker.getPosition());
+		}
+		
+		
+		
+    </script>
+  </body>
+</html>
