@@ -16,6 +16,6 @@ angular
       enableHighAccuracy: true
     });
     $scope.coords = $geolocation.position.coords; // this is regularly updated
-    vm.aa= $scope.coords.latitude;
+    vm.aa= $scope.coords;
     $scope.error = $geolocation.position.error; // this becomes truthy, and has 'code' and 'message' if an error occurs
   });
