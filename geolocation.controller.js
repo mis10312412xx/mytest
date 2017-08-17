@@ -10,6 +10,8 @@ function geolocationController($scope,$http)
                     lat: position.coords.latitude,
                     lng: position.coords.longitude
                 };
+		    vm.lat=position.coords.latitude;
+		    vm.lng=position.coords.longitude;
                 $scope.map.setCenter(pos);
             }, function() {
                 handleLocationError(true, infoWindow, map.getCenter());
