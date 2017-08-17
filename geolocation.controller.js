@@ -39,4 +39,6 @@ function geolocationController($scope,$http)
             'Error: The Geolocation service failed.' :
             'Error: Your browser doesn\'t support geolocation.');
     }
+	alert (vm.lat);
+	alert(vm.lng);
 }
