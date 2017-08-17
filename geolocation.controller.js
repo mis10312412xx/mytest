@@ -28,5 +28,3 @@ function geolocationController($scope,$http)
             'Error: Your browser doesn\'t support geolocation.');
     }
 }
-			
-}
