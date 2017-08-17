@@ -2,7 +2,7 @@ angular
   .module('geolocationDemo', ['ngGeolocation'])
   .controller('AppController', function($scope, $geolocation){
     var vm=this;
-    alert("1");  
+    alert("2");  
     $scope.$geolocation = $geolocation
  
     // basic usage
@@ -18,7 +18,7 @@ angular
     });
   
     $scope.coords = $geolocation.position.coords; // this is regularly updated
-  alert("$scope.coords");   
+  alert($scope.coords);   
   vm.aa="1";
  
     $scope.error = $geolocation.position.error; // this becomes truthy, and has 'code' and 'message' if an error occurs
