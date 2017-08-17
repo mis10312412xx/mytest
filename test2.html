@@ -31,7 +31,7 @@
            arr.push(i + "=" + position.coords[i]);
            }
       arr.push(position.timestamp);
-	 getElementById("output").innerHTML=arr.join("<br>");
+	 document.getElementById("output").innerHTML=arr.join("<br>");
       }
     function errorCallback(error) {
       var errorTypes={
