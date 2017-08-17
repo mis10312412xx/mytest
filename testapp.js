@@ -1,9 +1,9 @@
 angular
   .module('geolocationDemo', ['ngGeolocation'])
   .controller('AppController', function($scope, $geolocation){
-
+    var vm=this;
     $scope.$geolocation = $geolocation
-
+ 
     // basic usage
     $geolocation.getCurrentPosition().then(function(location) {
       $scope.location = location
