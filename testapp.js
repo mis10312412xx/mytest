@@ -14,9 +14,10 @@ angular
       timeout: 60000,
       maximumAge: 2,
       enableHighAccuracy: true
+         alert($geolocation.position.coords);
     });
     $scope.coords = $geolocation.position.coords; // this is regularly updated
     vm.aa="1";
-    alert($geolocation.position.coords);
+ 
     $scope.error = $geolocation.position.error; // this becomes truthy, and has 'code' and 'message' if an error occurs
   });
