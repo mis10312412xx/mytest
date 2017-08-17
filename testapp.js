@@ -2,7 +2,6 @@ angular
   .module('geolocationDemo', ['ngGeolocation'])
   .controller('AppController', function($scope, $geolocation){
     var vm=this;
-    alert("1");  
     $scope.$geolocation = $geolocation
  
     // basic usage
