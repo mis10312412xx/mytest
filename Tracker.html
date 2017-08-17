@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html ng-app>
+<html ng-app="app">
 <head>
     <meta charset="utf-8">
     <title>HTML5 google定位</title>
 </head>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA53_haHavNXGFRhZOTxV5c0nOdnn6T5Ig"></script>
  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-<body onload="loadDemo()">
+<body onload="loadDemo()" ng-controller="g as vm">
 <h1>HTML5 google定位</h1>
-<p id="status">瀏覽器不支援HTML5 google{{1+1}}定位</p>
+<p id="status" >瀏覽器不支援HTML5 google定位</p>
 
 <h2>当前位置：</h2>
 <table border="1">
@@ -25,6 +25,7 @@
 <td id="accuracy">?</td>
 </tr>
 </table>
+  
 <script type="text/javascript">
 
    
