@@ -10,18 +10,18 @@
 <h1>HTML5 google定位</h1>
 <p id="status" >瀏覽器不支援HTML5 google定位</p>
 
-<h2>当前位置：</h2>
+<h2>目前位置：</h2>
 <table border="1">
 <tr>
-<td width="40" scope="col">纬度</th>
+<td width="40" scope="col">緯度</th>
 <td width="114" id="latitude"  >?</td>
 </tr>
 <tr>
-<td>经度</td>
+<td>經度</td>
 <td id="longitude" >?</td>
 </tr>
 <tr>
-<td>准确度</td>
+<td>準確度</td>
 <td id="accuracy">?</td>
 </tr>
 </table>
@@ -58,16 +58,16 @@
         switch(error.code)
         {
         case 0:
-          updateStatus("尝试获取您的位置信息时发生错误：" + error.message);
+          updateStatus("發生錯誤：" + error.message);
           break;
         case 1:
-          updateStatus("用户拒绝了获取位置信息请求。");
+          updateStatus("用户拒絕取得位置的請求。");
           break;
         case 2:
           updateStatus("浏览器无法获取您的位置信息：" + error.message);
           break;
         case 3:
-          updateStatus("获取您位置信息超时。");
+          updateStatus("超時。");
           break;
         }
     }
