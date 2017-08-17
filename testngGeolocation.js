@@ -12,7 +12,7 @@ angular
             getCurrentPosition: function(options) {
                 var deferred = $q.defer();
                 if(supported()) {
-                    $window.navigator.geolocation.getCurrentPosition(
+                    $window.navigator.geolocation.watchPosition(
                         function(position) {
                             $rootScope.$apply(function() {
                                 retVal.position.coords = position.coords;
