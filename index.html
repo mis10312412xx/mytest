@@ -8,9 +8,9 @@
 <body ng-app="geolocationDemo">
   <div ng-controller="AppController as vm">
     <h1>Advanced</h1>
-    Latitude:<p ng-model="vm.aa"> {{$geolocation.position.coords.latitude}}</p>
+    Latitude: {{$geolocation.position.coords.latitude}} {{vm.aa}}
     <br />
-    Longitude:{{vm.aa}} {{$geolocation.position.coords.longitude}}
+    Longitude: {{$geolocation.position.coords.longitude}}
     <br />
     Timestamp: {{$geolocation.position.timestamp}}
   </div>
