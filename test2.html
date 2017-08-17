@@ -32,12 +32,8 @@
                                           errorCallback,
                                           option
                                           );
-		$i("start").value="位置監視中"; //變更按鈕顯示
-        }; //end of onclick
-	  $i("stop").onclick=function() {
-        geolocation.clearWatch(watchID); //停止監視
-        $i("start").value="開始"; //恢復按鈕顯示
-        }; //end of onclick
+	
+
 	  }; //end of window.onload
     function successCallback(position) {
       var arr=new Array();
