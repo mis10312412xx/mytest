@@ -8,7 +8,7 @@ angular
     $geolocation.getCurrentPosition().then(function(location) {
       $scope.location = location
     });
-    alert($scope.location);
+  
     // regular updates
     $geolocation.watchPosition({
       timeout: 60000,
