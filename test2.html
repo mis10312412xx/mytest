@@ -3,16 +3,8 @@
 <meta charset=utf-8>
 <head>
   <title>HTML5 Test</title>
-  <script>
-    function $i(id) {return document.getElementById(id);}
-    function $n(id) {return document.getElementsByName(name);}
-    function $c(id) {return document.getElementsByClass(className);}
-    function $t(id) {return document.getElementsByClass(tagName);}
-  </script>
 </head>
 <body>
-  <input type="button" id="start" value="開始">
-  <input type="button" id="stop" value="停止">
   <p id="output"></p>
   <script>
     var watchID;
@@ -33,7 +25,6 @@
                                           option
                                           );
 	
-
 	  }; //end of window.onload
     function successCallback(position) {
       var arr=new Array();
