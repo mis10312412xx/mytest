@@ -1,3 +1,3 @@
 <?php
-echo $_GET['value'];
+echo "[{ value:\"".$_GET['value']."\"}]";
 ?>
