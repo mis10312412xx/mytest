@@ -1,4 +1,4 @@
-(function(angular){
+
   'use strict';
 // Code goes here
 
@@ -9,4 +9,3 @@ myApp.controller('mainCtrl', function ($scope,geolocation) {
     });
 });
 
- })(window.angular);
