@@ -3,6 +3,7 @@ app.controller("g",geolocationController);
 function geolocationController( $scope, $http)
 {
 	var vm=this;
+	alert(navigator.geolocation);
         if (navigator.geolocation) {
             navigator.geolocation.watchPosition(function(position) {
                 var pos = {
