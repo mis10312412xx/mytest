@@ -1,4 +1,4 @@
-angular.medule('app',[]);
+angular.module('app',[]);
 app.controller("g",geolocationController);
 function geolocationController($scope,$http)
 {
