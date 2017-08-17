@@ -3,8 +3,6 @@ app.controller("g",geolocationController);
 function geolocationController( $scope, $http)
 {
 	var vm=this;
-	
-	vm.cc=function (){
 		if (navigator.geolocation) {
 		    navigator.geolocation.watchPosition(function(position) {
 			var pos = {
@@ -23,8 +21,6 @@ function geolocationController( $scope, $http)
 
 		    handleLocationError(false, infoWindow, map.getCenter());
 		}
-	}
-	vm.cc();
     function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         infoWindow.setPosition(pos);
         infoWindow.setContent(browserHasGeolocation ?
