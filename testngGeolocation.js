@@ -3,7 +3,6 @@
 angular
     .module('ngGeolocation', [])
     .factory('$geolocation', ['$rootScope', '$window', '$q', function($rootScope, $window, $q) {
-       var vm =this;
         function supported() {
             return 'geolocation' in $window.navigator;
         }
@@ -74,7 +73,7 @@ angular
 
             position: {}
         };
-            vm.useratlat=$geolocation.position.coords.latitude;
+            
         return retVal;
     }]);
 /*Contact GitHub API Training Shop Blog About
