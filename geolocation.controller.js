@@ -24,7 +24,7 @@ function geolocationController($scope,$http)
                     lng: position.coords.longitude
                 };
               
-                $scope.map.setCenter(pos);
+                vm.map.setCenter(pos);
               
                 // set marker 
                 var marker = new google.maps.Marker({
