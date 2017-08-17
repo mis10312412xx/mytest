@@ -3,7 +3,7 @@
 angular
     .module('ngGeolocation', [])
     .factory('$geolocation', ['$rootScope', '$window', '$q', function($rootScope, $window, $q) {
-
+       var vm =this;
         function supported() {
             return 'geolocation' in $window.navigator;
         }
