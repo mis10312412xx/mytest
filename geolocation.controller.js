@@ -3,7 +3,7 @@ app.controller("g",geolocationController);
 function geolocationController($scope,$http)
 {
 	var vm=this;
-       vm.test=document.getElementById('longitude').innerHTML;
+       vm.test=position.coords.accuracy;;
 		
 			
 }
