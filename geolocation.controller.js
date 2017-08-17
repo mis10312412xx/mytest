@@ -4,6 +4,58 @@ function geolocationController($scope,$http)
 {
 	var vm=this;
 	
+	 // default map options
+    var mapOptions = {
+        center: {
+            lat: -34.397,
+            lng: 150.644
+        },
+        zoom: 17
+    };
+
+    $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+    $scope.loadMap = function() {
+        // set client position 
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var pos = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+              
+                $scope.map.setCenter(pos);
+              
+                // set marker 
+                var marker = new google.maps.Marker({
+                    position: pos,
+                    map: $scope.map
+                });
+
+                var contentString = '<h2>Hey, Here I am.<h2>';
+                var infowindow = new google.maps.InfoWindow({
+                    content: contentString
+                });
+              
+                // set marker click event 
+                marker.addListener('click', function() {
+                    infowindow.open($scope.map, marker);
+                });
+
+            }, function() {
+                handleLocationError(true, infoWindow, map.getCenter());
+            });
+        } else {
+            handleLocationError(false, infoWindow, map.getCenter());
+        }
+    };
+
+    function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+            'Error: The Geolocation service failed.' :
+            'Error: Your browser doesn\'t support geolocation.');
+    }/*
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function(position) {
                 var pos = {
@@ -12,7 +64,7 @@ function geolocationController($scope,$http)
                 };
 		    vm.lat=position.coords.latitude;
 		    vm.lng=position.coords.longitude;
-                   alert(vm.lat);
+           
             }, function() {
                 handleLocationError(true, infoWindow, map.getCenter());
             });
@@ -26,6 +78,6 @@ function geolocationController($scope,$http)
         infoWindow.setContent(browserHasGeolocation ?
             'Error: The Geolocation service failed.' :
             'Error: Your browser doesn\'t support geolocation.');
-    }
+    }*/
 	
 }
