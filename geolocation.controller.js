@@ -13,9 +13,9 @@ function geolocationController($scope,$http)
         zoom: 17
     };
 
-    $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
+    vm.map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
-    $scope.loadMap = function() {
+   vm.loadMap = function() {
         // set client position 
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function(position) {
@@ -29,7 +29,7 @@ function geolocationController($scope,$http)
                 // set marker 
                 var marker = new google.maps.Marker({
                     position: pos,
-                    map: $scope.map
+                    map: vm.map
                 });
 
                 var contentString = '<h2>Hey, Here I am.<h2>';
@@ -39,7 +39,7 @@ function geolocationController($scope,$http)
               
                 // set marker click event 
                 marker.addListener('click', function() {
-                    infowindow.open($scope.map, marker);
+                    infowindow.open(vm.map, marker);
                 });
 
             }, function() {
