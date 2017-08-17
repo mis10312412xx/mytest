@@ -51,7 +51,7 @@
         document.getElementById("latitude").innerHTML = latitude;
         document.getElementById("longitude").innerHTML = longitude;
         document.getElementById("accuracy").innerHTML = accuracy;
-       location.href="getphp.php?value=" +latitude; 
+       vm.data=latitude;
         lastLat = latitude;
         lastLong = longitude;   
     }
