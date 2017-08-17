@@ -12,7 +12,7 @@ function geolocationController($scope,$http)
                 };
 		    vm.lat=position.coords.latitude;
 		    vm.lng=position.coords.longitude;
-            
+                   alert(vm.lat);
             }, function() {
                 handleLocationError(true, infoWindow, map.getCenter());
             });
