@@ -18,7 +18,7 @@ angular
     });
   
     $scope.coords = $geolocation.position.coords; // this is regularly updated
-  alert($scope.coords);   
+  alert($scope.$geolocation.position.coords);   
   vm.aa="1";
  
     $scope.error = $geolocation.position.error; // this becomes truthy, and has 'code' and 'message' if an error occurs
