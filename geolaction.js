@@ -14,7 +14,7 @@ myApp.controller('mainCtrl', function ($scope,geolocation,$timeout) {
      console.log($scope.newcoords);
 };
 $timeout(toDo,1000)
-var totest = function {
+var totest = function () {
 
 console.log("Hello World");
 
