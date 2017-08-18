@@ -14,30 +14,27 @@ myApp.controller('mainCtrl', function ($scope,geolocation,$interval,$window) {
     }
     $scope.stolat=22.6395202; 
     $scope.stolng=120.3215537;
-    $scope.EARTH_RADIUS = 6378137;//赤道半径(单位m)
     $scope.range=0;
     $scope.coords = geolocation.getLocation().then(function(data){
       $scope.lat=data.coords.latitude; $scope.lng=data.coords.longitude;
-      $scope.rlatp=Rad($scope.stolat)-Rad($scope.lat);
-      //$scope.rlngp=($scope.stolng-$scope.lng)*($scope.stolng-$scope.lng);
-      //$scope.range=$window.Math.sqrt($scope.rlatp+$scope.rlngp);
+      $scope.rlat=Rad($scope.stolat)-Rad($scope.lat);
+      $scope.rlng=Rad($scope.stolng)-Rad($scope.lng);
       
+       $scope.range = 2 * $window.Math.asin($window.Math.sqrt($window.Math.pow($window.$window.Math.sin($scope.rlat/2),2) +
+        $window.Math.cos(Rad($scope.stolat))*$window.Math.cos(Rad($scope.lat))*$window.Math.pow($window.Math.sin($scope.rlng/2),2)));
+        $scope.range = $scope.range*6378.137*1000; //公尺
       return {lat:data.coords.latitude, long:data.coords.longitude};
     });
     $scope.toDo = toDO;
      function toDO(){
      $scope.coords = geolocation.getLocation().then(function(data){
        $scope.lat=data.coords.latitude; $scope.lng=data.coords.longitude;
-       //$scope.rlatp=($scope.stolat-$scope.lat)*($scope.stolat-$scope.lat);
-      //$scope.rlngp=($scope.stolng-$scope.lng)*($scope.stolng-$scope.lng);
-      //$scope.range=$window.Math.sqrt($scope.rlatp+$scope.rlngp);
+     
       return {lat:data.coords.latitude, long:data.coords.longitude};
     });
      console.log($scope.lat);
      console.log($scope.lng);
-       console.log($scope.rlatp);
-       //console.log($scope.rlngp);
-       //console.log($scope.range);
+       console.log($scope.range);
     };
    $interval(toDO,1000);
 });
