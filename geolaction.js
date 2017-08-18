@@ -16,6 +16,6 @@ myApp.controller('mainCtrl', function ($scope,geolocation,$timeout) {
      console.log($scope.coords);
       
     };
-    $timeout(toDO,5000);
+   $interval(toDO,1000);
 });
 
