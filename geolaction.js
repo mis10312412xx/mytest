@@ -13,7 +13,7 @@ myApp.controller('mainCtrl', function ($scope,geolocation,$timeout) {
     });
      console.log($scope.newcoords);
 };
-$timeout(toDo,5000)
+$timeout(toDo,1000)
 
 //原文網址：https://read01.com/RnjDyG.html
   
