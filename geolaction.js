@@ -41,6 +41,7 @@ myApp.controller('mainCtrl', function ($scope,geolocation,$interval,$window) {
      console.log($scope.lat);
      console.log($scope.lng);
        console.log($scope.range);
+       console.log($scope.ezrange);
     };
    $interval(toDO,1000);
 });
