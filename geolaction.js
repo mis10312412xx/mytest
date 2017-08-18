@@ -19,7 +19,7 @@ myApp.controller('mainCtrl', function ($scope,geolocation,$interval,$window) {
       $scope.lat=data.coords.latitude; $scope.lng=data.coords.longitude;
       $scope.rlat=Rad($scope.stolat)-Rad($scope.lat);
       $scope.rlng=Rad($scope.stolng)-Rad($scope.lng);
-       $scope.range = 2 * $window.Math.asin($window.Math.sqrt($window.Math.pow($window.$window.Math.sin($scope.rlat/2),2) +
+       $scope.range = 2 * $window.Math.asin($window.Math.sqrt($window.Math.pow($window.Math.sin($scope.rlat/2),2) +
         $window.Math.cos(Rad($scope.stolat))*$window.Math.cos(Rad($scope.lat))*$window.Math.pow($window.Math.sin($scope.rlng/2),2)));
         $scope.range = $scope.range*6378.137*1000; //公尺
       return {lat:data.coords.latitude, long:data.coords.longitude};
@@ -28,7 +28,7 @@ myApp.controller('mainCtrl', function ($scope,geolocation,$interval,$window) {
      function toDO(){
      $scope.coords = geolocation.getLocation().then(function(data){
        $scope.lat=data.coords.latitude; $scope.lng=data.coords.longitude;
-        $scope.range = 2 * $window.Math.asin($window.Math.sqrt($window.Math.pow($window.$window.Math.sin($scope.rlat/2),2) +
+        $scope.range = 2 * $window.Math.asin($window.Math.sqrt($window.Math.pow($window.Math.sin($scope.rlat/2),2) +
         $window.Math.cos(Rad($scope.stolat))*$window.Math.cos(Rad($scope.lat))*$window.Math.pow($window.Math.sin($scope.rlng/2),2)));
         $scope.range = $scope.range*6378.137*1000; //公尺
       return {lat:data.coords.latitude, long:data.coords.longitude};
