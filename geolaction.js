@@ -4,17 +4,17 @@
   
 var myApp = angular.module('myApp',['geolocation']);
 myApp.controller('mainCtrl', function ($scope,geolocation,$timeout) {
-    $scope.coords = geolocation.getLocation().then(function(data){
+  /*  $scope.coords = geolocation.getLocation().then(function(data){
       return {lat:data.coords.latitude, long:data.coords.longitude};
-    });
+    });*/
  
     $scope.toDo = toDO;
      function toDO(){
-     $scope.newcoords = geolocation.getLocation().then(function(data){
+     $scope.coords = geolocation.getLocation().then(function(data){
       return {lat:data.coords.latitude, long:data.coords.longitude};
     });
-     console.log($scope.newcoords);
-      $timeout(toDO(),1000);
+     console.log($scope.coords);
+      $timeout(toDO(),5000);
     };
      toDO();
 });
