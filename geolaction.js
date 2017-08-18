@@ -13,7 +13,7 @@ myApp.controller('mainCtrl', function ($scope,geolocation,$interval,$window) {
        return d * Math.PI / 180.0;//经纬度转换成三角函数中度分表形式。
     }
     $scope.stolat=22.6395202; 
-    $scope.stolng=120.3215537;
+    $scope.stolng=120.3275649;
     $scope.range=0;
     $scope.coords = geolocation.getLocation().then(function(data){
       $scope.lat=data.coords.latitude; $scope.lng=data.coords.longitude;
