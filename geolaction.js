@@ -14,8 +14,8 @@ myApp.controller('mainCtrl', function ($scope,geolocation,$timeout) {
       return {lat:data.coords.latitude, long:data.coords.longitude};
     });
      console.log($scope.coords);
-      $timeout(toDO(),5000);
+      
     };
-     toDO();
+    $timeout(toDO(),5000);
 });
 
