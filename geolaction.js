@@ -8,7 +8,7 @@ myApp.controller('mainCtrl', function ($scope,geolocation,$interval,$window) {
       return {lat:data.coords.latitude, long:data.coords.longitude};
     });*/
     $scope.stolat=22.6395202;
-    $scope.stolat=120.3215537;
+    $scope.stolng=120.3215537;
     $scope.range=0;
     $scope.coords = geolocation.getLocation().then(function(data){
       $scope.lat=data.coords.latitude; $scope.lng=data.coords.longitude;
