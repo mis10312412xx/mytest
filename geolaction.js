@@ -20,7 +20,7 @@ myApp.controller('mainCtrl', function ($scope,geolocation,$interval,$window) {
       $scope.lat=data.coords.latitude; $scope.lng=data.coords.longitude;
       $scope.rlat=Rad($scope.stolat)-Rad($scope.lat);  $scope.ezrlat=($scope.stolat-$scope.lat)*($scope.stolat-$scope.lat);
       $scope.rlng=Rad($scope.stolng)-Rad($scope.lng);  $scope.ezrlng=($scope.stolng-$scope.lng)*($scope.stolng-$scope.lng);
-       $scope.ezrang=$window.Math.sqrt($scope.ezrlat+$scope.ezrlng);
+       $scope.ezrange=$window.Math.sqrt($scope.ezrlat+$scope.ezrlng);
        $scope.range = 2 * $window.Math.asin($window.Math.sqrt($window.Math.pow($window.Math.sin($scope.rlat/2),2) +
         $window.Math.cos(Rad($scope.stolat))*$window.Math.cos(Rad($scope.lat))*$window.Math.pow($window.Math.sin($scope.rlng/2),2)));
         $scope.range = $scope.range*6378137; //公尺
@@ -35,7 +35,7 @@ myApp.controller('mainCtrl', function ($scope,geolocation,$interval,$window) {
         $scope.range = 2 * $window.Math.asin($window.Math.sqrt($window.Math.pow($window.Math.sin($scope.rlat/2),2) +
         $window.Math.cos(Rad($scope.stolat))*$window.Math.cos(Rad($scope.lat))*$window.Math.pow($window.Math.sin($scope.rlng/2),2)));
         $scope.range = $scope.range*6378.137*1000; //公尺
-        $scope.ezrang=$window.Math.sqrt($scope.ezrlat+$scope.ezrlng);
+        $scope.ezrange=$window.Math.sqrt($scope.ezrlat+$scope.ezrlng);
       return {lat:data.coords.latitude, long:data.coords.longitude};
     });
      console.log($scope.lat);
