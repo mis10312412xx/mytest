@@ -8,7 +8,7 @@ myApp.controller('mainCtrl', function ($scope,geolocation,$interval,$window) {
       return {lat:data.coords.latitude, long:data.coords.longitude};
     });*/
     $scope.toDo = toDO;
-    $scopr.Rad=Rad;
+    $scope.Rad=Rad;
       function Rad(d){
        return d * Math.PI / 180.0;//经纬度转换成三角函数中度分表形式。
     }
