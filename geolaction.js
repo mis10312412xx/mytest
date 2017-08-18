@@ -3,7 +3,7 @@
 // Code goes here
   
 var myApp = angular.module('myApp',['geolocation']);
-myApp.controller('mainCtrl', function ($scope,geolocation,$timeout) {
+myApp.controller('mainCtrl', function ($scope,geolocation,$interval) {
   /*  $scope.coords = geolocation.getLocation().then(function(data){
       return {lat:data.coords.latitude, long:data.coords.longitude};
     });*/
