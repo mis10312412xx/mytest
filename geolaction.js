@@ -14,7 +14,7 @@ myApp.controller('mainCtrl', function ($scope,geolocation,$interval,$window) {
       $scope.lat=data.coords.latitude; $scope.lng=data.coords.longitude;
       $scope.rlatp=($scope.stolat-$scope.lat)*($scope.stolat-$scope.lat);
       $scope.rlngp=($scope.stolng-$scope.lng)*($scope.stolng-$scope.lng)
-      $scope.range=$window.Math.sqrt($scope.rlatp+$scope.rlngp);
+      $scope.range=$window.round($window.Math.sqrt($scope.rlatp+$scope.rlngp),3);
       
       return {lat:data.coords.latitude, long:data.coords.longitude};
     });
@@ -24,7 +24,7 @@ myApp.controller('mainCtrl', function ($scope,geolocation,$interval,$window) {
        $scope.lat=data.coords.latitude; $scope.lng=data.coords.longitude;
        $scope.rlatp=($scope.stolat-$scope.lat)*($scope.stolat-$scope.lat);
       $scope.rlngp=($scope.stolng-$scope.lng)*($scope.stolng-$scope.lng)
-      $scope.range=$window.Math.sqrt($scope.rlatp+$scope.rlngp);
+      $scope.range=$window.round($window.Math.sqrt($scope.rlatp+$scope.rlngp),3);
       return {lat:data.coords.latitude, long:data.coords.longitude};
     });
      console.log($scope.lat);
