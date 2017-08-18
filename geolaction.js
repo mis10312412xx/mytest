@@ -21,11 +21,6 @@ console.log("Hello World");
 };
 
 $timeout(totest,100)
-
-
-
-原文網址：https://read01.com/RnjDyG.html
-//原文網址：https://read01.com/RnjDyG.html
   
 });
 
