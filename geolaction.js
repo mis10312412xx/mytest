@@ -14,7 +14,17 @@ myApp.controller('mainCtrl', function ($scope,geolocation,$timeout) {
      console.log($scope.newcoords);
 };
 $timeout(toDo,1000)
+var totest = function {
 
+console.log("Hello World");
+
+};
+
+$timeout(totest,100)
+
+
+
+原文網址：https://read01.com/RnjDyG.html
 //原文網址：https://read01.com/RnjDyG.html
   
 });
