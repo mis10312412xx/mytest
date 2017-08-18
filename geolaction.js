@@ -7,7 +7,7 @@ myApp.controller('mainCtrl', function ($scope,geolocation,$timeout) {
     $scope.coords = geolocation.getLocation().then(function(data){
       return {lat:data.coords.latitude, long:data.coords.longitude};
     });
-    var toDo = function {
+    var toDo = function (){
      $scope.newcoords = geolocation.getLocation().then(function(data){
       return {lat:data.coords.latitude, long:data.coords.longitude};
     });
