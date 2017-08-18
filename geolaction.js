@@ -21,7 +21,7 @@ myApp.controller('mainCtrl', function ($scope,geolocation,$interval,$window) {
       $scope.rlng=Rad($scope.stolng)-Rad($scope.lng);
        $scope.range = 2 * $window.Math.asin($window.Math.sqrt($window.Math.pow($window.Math.sin($scope.rlat/2),2) +
         $window.Math.cos(Rad($scope.stolat))*$window.Math.cos(Rad($scope.lat))*$window.Math.pow($window.Math.sin($scope.rlng/2),2)));
-        $scope.range = $scope.range*6378.137*1000; //公尺
+        $scope.range = $scope.range*6378137; //公尺
       return {lat:data.coords.latitude, long:data.coords.longitude};
     });
     $scope.toDo = toDO;
