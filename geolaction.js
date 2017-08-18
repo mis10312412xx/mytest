@@ -29,7 +29,8 @@ myApp.controller('mainCtrl', function ($scope,geolocation,$interval,$window) {
     });
      console.log($scope.lat);
      console.log($scope.lng);
-       console.log($scope.range);
+       console.log($scope.rlatp);
+         console.log($scope.rlngp);
     };
    $interval(toDO,1000);
 });
