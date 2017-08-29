@@ -25,7 +25,7 @@
 			 <tr>    
 				 <th><center>名稱</center></td></th>
 				 <th><center>價格</center></td></th>
-         <th><center>數量</center></td></th>
+         			 <th><center>數量</center></td></th>
        
 				 <th><center><a class="btn btn-default" ng-click="vm.addDishes()">新增一項</a></center></td></th>
 			 </tr>
@@ -36,23 +36,23 @@
 				<td>
 				  	 <center><p>價格</p></center>
 				</td>
-        <td>
-				    <input type="text" placeholder='數量' ng-model="o.price"  onkeyup="return ValidateNumber($(this),value)"/>
+       				 <td>
+				 	   <input type="text" placeholder='數量' ng-model="o.price"  onkeyup="return ValidateNumber($(this),value)"/>
 				</td>
 				<td>
-				  <center><a  ng-if="$index!=0" class="btn btn-default" ng-click="vm.deleteDishes($index)">刪除一項</a></center>
+					  <center><a  ng-if="$index!=0" class="btn btn-default" ng-click="vm.deleteDishes($index)">刪除一項</a></center>
 				</td>
-			</tr>
-       <tr>
-				<td colspan="4">
-				 <center><p>總價:xxx</p></center>
-				</td>         
-			</tr>
-			 <tr>
-				<td colspan="4">
-				 <center><a class="btn btn-default" ng-click="vm.saveDishes()">儲存</a></center>
-				</td>         
-			</tr>
+				</tr>
+      				 <tr>
+					<td colspan="4">
+					 <center><p>總價:xxx</p></center>
+					</td>         
+				</tr>
+				 <tr>
+					<td colspan="4">
+					 <center><a class="btn btn-default" ng-click="vm.saveDishes()">儲存</a></center>
+					</td>         
+				</tr>
 		  </table>
 	</center>
 </body>
