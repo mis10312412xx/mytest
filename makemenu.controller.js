@@ -7,6 +7,7 @@ function makemenu( $scope, $http)
 	vm.deleteDishes=deleteDishes;
 	vm.c=0;
 	vm.menudata=[];
+	vm.temp=[];
 	vm.menudata.push({
 		name: "",
 		price: ""
@@ -19,9 +20,12 @@ function makemenu( $scope, $http)
 	}
 	function deleteDishes(){
 	     for(i in vm.menudata){
-		alert(i);     
-		alert(vm.menudata[i].name);
+		if(vm.menudata[i].name!="")
+		{
+		   vm.temp.push(vm.menudata[i]);
+		}
 	     }
+		alert (vm.temp);
 	}
 	
 }
