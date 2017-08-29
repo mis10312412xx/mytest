@@ -5,7 +5,6 @@ function makemenu( $scope, $http)
 	var vm=this;
 	vm.addDishes=addDishes;
 	vm.deleteDishes=deleteDishes;
-	vm.c=0;
 	vm.menudata=[];
 	vm.temp=[];
 	vm.menudata.push({
