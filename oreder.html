@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="utf-8">
+    <title>訂單</title>
+</head>
+	<link rel="stylesheet" href="https://mis10312412xx.github.io/mytest/bootstrap.min.css">
+	<link rel="stylesheet" href="https://mis10312412xx.github.io/mytest/jquery-ui.css">
+	 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+ 	<script src="https://mis10312412xx.github.io/mytest/makemenu.controller.js"></script>
+	<script src="https://mis10312412xx.github.io/mytest/jquery.min.js"></script>
+	<script src="https://mis10312412xx.github.io/mytest/bootstrap.min.js"></script>
+	<script src="https://mis10312412xx.github.io/mytest/jquery-ui.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-route.js"></script>
+	<script src="https://mis10312412xx.github.io/mytest/angular-ui-router.js"></script>
+	<script src="https://mis10312412xx.github.io/mytest/angular-modal-service.js"></script>
+ 	<script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+
+<body ng-controller="order as vm">
+	<center>
+		 <table border="1px" class="table table-deafult" >
+			 <tr>
+				 <caption colspan="4"><h1>新增訂單</h1></caption>
+			 </tr>
+			 <tr>    
+				 <th><center>名稱</center></td></th>
+				 <th><center>價格</center></td></th>
+         <th><center>數量</center></td></th>
+       
+				 <th><center><a class="btn btn-default" ng-click="vm.addDishes()">新增一項</a></center></td></th>
+			 </tr>
+			<tr ng-repeat="m in vm.menudata">
+				<td>
+					 <center><p>名稱</p></center>
+				</td>
+				<td>
+				  	 <center><p>價格</p></center>
+				</td>
+        <td>
+				    <input type="text" placeholder='數量' ng-model="m.price"  onkeyup="return ValidateNumber($(this),value)"/>
+				</td>
+				<td>
+				  <center><a  ng-if="$index!=0" class="btn btn-default" ng-click="vm.deleteDishes($index)">刪除一項</a></center>
+				</td>
+			</tr>
+       <tr>
+				<td colspan="3">
+				 <center><p>總價</p></center>
+				</td>         
+			</tr>
+			 <tr>
+				<td colspan="3">
+				 <center><a class="btn btn-default" ng-click="vm.saveDishes()">儲存</a></center>
+				</td>         
+			</tr>
+		  </table>
+	</center>
+</body>
+<SCRIPT LANGUAGE="JavaScript">
+//只能輸入數字
+ function ValidateNumber(e, pnumber)
+{
+    if (!/^\d+$/.test(pnumber))
+    {
+        $(e).val(/^\d+/.exec($(e).val()));
+    }
+    return false;
+}
+</script>
+</html>
