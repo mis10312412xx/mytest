@@ -17,31 +17,34 @@
  	<script src="https://code.jquery.com/jquery-2.1.4.js"></script>
 
 <body ng-controller="makemenu as vm">
-<center>
- <table border="1px" class="table table-deafult" >
-         <tr>
-		 <caption colspan="3"><h1>新增菜單</h1></caption>
-         </tr>
-         <tr>    
-	 	 <th><center>名稱</center></td></th>
-		 <th><center>價格</center></td></th>
-    		 <th><center><a class="btn btn-default" ng-click="vm.addDishes()">新增一項</a></center></td></th>
-         </tr>
-	<tr ng-repeat="m in vm.menudata">
-		<td>
-		  <input type="text" placeholder='名稱' ng-model="m.name"/>
-		</td>
-		<td>
-		    <input type="text" placeholder='價格' ng-model="m.price"  onkeyup="return ValidateNumber($(this),value)"/>
-		</td>
-		<td>
-		  <center><a  ng-if="$index!=0" class="btn btn-default" ng-click="vm.deleteDishes($index)">刪除一項</a></center>
-		</td>
-	</tr>
-          <tr>
-		 <center><a class="btn btn-default" ng-click="vm.saveDishes()">儲存</a></center>
-         </tr>
- </table>
+	<center>
+		 <table border="1px" class="table table-deafult" >
+			 <tr>
+				 <caption colspan="3"><h1>新增菜單</h1></caption>
+			 </tr>
+			 <tr>    
+				 <th><center>名稱</center></td></th>
+				 <th><center>價格</center></td></th>
+				 <th><center><a class="btn btn-default" ng-click="vm.addDishes()">新增一項</a></center></td></th>
+			 </tr>
+			<tr ng-repeat="m in vm.menudata">
+				<td>
+				  <input type="text" placeholder='名稱' ng-model="m.name"/>
+				</td>
+				<td>
+				    <input type="text" placeholder='價格' ng-model="m.price"  onkeyup="return ValidateNumber($(this),value)"/>
+				</td>
+				<td>
+				  <center><a  ng-if="$index!=0" class="btn btn-default" ng-click="vm.deleteDishes($index)">刪除一項</a></center>
+				</td>
+			</tr>
+			 <tr>
+				<td> 
+				 <center><a class="btn btn-default" ng-click="vm.saveDishes()">儲存</a></center>
+				</td>         
+			</tr>
+		  </table>
+	</center>
 </body>
 <SCRIPT LANGUAGE="JavaScript">
 //只能輸入數字
