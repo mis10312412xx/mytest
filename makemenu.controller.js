@@ -26,6 +26,7 @@ function makemenu( $scope, $http)
 		}
 	     }
 		alert (vm.temp);
+		vm.menudata=vm.temp;
 	}
 	
 }
