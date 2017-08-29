@@ -3,7 +3,7 @@ app.controller("makemenu",makemenu);
 function makemenu( $scope, $http)
 {
 	var vm=this;
-	vm.addDishs=addDishes;
+	vm.addDishes=addDishes;
 	vm.c=0;
 	vm.menudata=[];
 	vm.menudata.push({
