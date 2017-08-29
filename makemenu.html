@@ -15,6 +15,8 @@
 	<script src="https://mis10312412xx.github.io/mytest/angular-ui-router.js"></script>
 	<script src="https://mis10312412xx.github.io/mytest/angular-modal-service.js"></script>
  <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+	<script src="https://mis10312412xx.github.io/mytest/ng-file-upload-shim.min.js"></script>
+<script src="https://mis10312412xx.github.io/mytest/ng-file-upload.min.js"></script>
  
 <body ng-controller="makemenu as vm">
 <center>
@@ -28,6 +30,23 @@
 	    	 <th><center>上傳照片</center></td></th>
     		 <th><center><a class="btn btn-default" ng-click="vm.addCoupon()">新增優惠券</a></center></td></th>
          </tr>
+	<tr>
+		<td>
+			name
+		</td>
+		<td>
+		      image	
+		</td>
+		<td>
+			<input type="file" file-model="myFile"/>
+			<div class="col-md-12">
+			    <img ng-src="{{imageSrc}}" style="max-width:300px;max-height:300px;margin:0 auto;display:block;" />
+			</div>
+		</td>
+		<td>
+		  xxx
+		</td>
+	</tr>
            
  </table>
 
