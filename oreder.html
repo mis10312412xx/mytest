@@ -29,7 +29,7 @@
        
 				 <th><center><a class="btn btn-default" ng-click="vm.addDishes()">新增一項</a></center></td></th>
 			 </tr>
-			<tr ng-repeat="m in vm.menudata">
+			<tr ng-repeat="o in vm.orderdata">
 				<td>
 					 <center><p>名稱</p></center>
 				</td>
@@ -37,7 +37,7 @@
 				  	 <center><p>價格</p></center>
 				</td>
         <td>
-				    <input type="text" placeholder='數量' ng-model="m.price"  onkeyup="return ValidateNumber($(this),value)"/>
+				    <input type="text" placeholder='數量' ng-model="o.price"  onkeyup="return ValidateNumber($(this),value)"/>
 				</td>
 				<td>
 				  <center><a  ng-if="$index!=0" class="btn btn-default" ng-click="vm.deleteDishes($index)">刪除一項</a></center>
