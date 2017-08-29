@@ -29,10 +29,10 @@
          </tr>
 	<tr ng-repeat="m in vm.menudata">
 		<td>
-		  <input type="text" placeholder='名稱' ng-model="m.name" required />
+		  <input type="text" placeholder='名稱' ng-model="m.name"/>
 		</td>
 		<td>
-		    <input type="text" placeholder='價格' ng-model="m.price"  onkeyup="return ValidateNumber($(this),value)"  required/>
+		    <input type="text" placeholder='價格' ng-model="m.price"  onkeyup="return ValidateNumber($(this),value)"/>
 		</td>
 		<td>
 		  <center><a  ng-if="$index!=0" class="btn btn-default" ng-click="vm.deleteDishes()">刪除一項</a></center>
