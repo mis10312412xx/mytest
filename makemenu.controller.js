@@ -6,12 +6,11 @@ function makemenu( $scope, $http)
 	vm.addDish=addDishes;
 	
 	vm.menudata=[];
-	//vm.allgif="";
 	vm.menudata.push({
 		name: "",
 		price: ""
 	});
-	
+	alert(vm.menudata);
 	function addDishes(){
 		vm.menudata.push({
 		name: "",
