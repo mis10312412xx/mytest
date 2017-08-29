@@ -32,13 +32,15 @@ function makemenu( $scope, $http)
 	  for(i in vm.menudata){
 		if(vm.menudata[i].name=="" || vm.menudata[i].price==""){
 		     vm.savestate="n";
-		     alert("有欄位還沒填");
+		 
 		}
 	     }
 		if(vm.savestate=="y"){
 		 	alert("儲存成功");
 		}else{
+			alert("有欄位還沒填");
 			vm.savestate="y";
+			
 		}
 		
 	}
