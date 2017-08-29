@@ -4,7 +4,7 @@ function makemenu( $scope, $http)
 {
 	var vm=this;
 	vm.addDish=addDishes;
-	
+	vm.c=0;
 	vm.menudata=[];
 	vm.menudata.push({
 		name: "",
@@ -15,6 +15,8 @@ function makemenu( $scope, $http)
 		name: "",
 		price: ""
 		});
+		vm.c++;
+		alert(vm.c);
 	}
 }
 
