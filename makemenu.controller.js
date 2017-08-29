@@ -5,8 +5,10 @@ function makemenu( $scope, $http)
 	var vm=this;
 	vm.addDishes=addDishes;
 	vm.deleteDishes=deleteDishes;
+	vm.saveDishes=saveDishes;
 	vm.menudata=[];
 	vm.temp=[];
+	vm.savestate="y";
 	vm.menudata.push({
 		name: "",
 		price: ""
@@ -26,7 +28,20 @@ function makemenu( $scope, $http)
 	     }
 		vm.menudata=vm.temp;
 	}
-	
+	function saveDishes(){
+	  for(i in vm.menudata){
+		if(vm.menudata[i].name=="" || vm.menudata[i].price==""){
+		     vm.savestate="n";
+		     alert("有欄位還沒填");
+		}
+	     }
+		if(vm.savestate=="y"){
+		 	alert("儲存成功");
+		}else{
+			vm.savestate="y";
+		}
+		
+	}
 }
 
 
