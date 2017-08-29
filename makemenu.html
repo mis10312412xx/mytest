@@ -27,14 +27,16 @@
 		 <th><center>價格</center></td></th>
     		 <th><center><a class="btn btn-default" ng-click="vm.addDishes()">新增一項</a></center></td></th>
          </tr>
-	<tr ng-repeat="m in [0,1]">
+	<tr ng-repeat="m in vm.menudata">
 		<td>
 		  <input type="text" placeholder='名稱' ng-model="m.name" />
 		</td>
-		<td colspan="2">
+		<td>
 		    <input type="text" placeholder='價格' ng-model="m.price" />
 		</td>
-		
+		<td>
+			<center><a class="btn btn-default" ng-click="vm.addDishes()">刪除一項</a></center>
+		</td>
 	</tr>
            
  </table>
