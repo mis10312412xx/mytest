@@ -3,12 +3,21 @@ app.controller("makemenu",makemenu);
 function makemenu( $scope, $http)
 {
 	var vm=this;
+	vm.addDish=addDishes;
+	
 	vm.menudata=[];
 	//vm.allgif="";
 	vm.menudata.push({
 		name: "",
 		price: ""
 	});
+	
+	function addDishes(){
+		vm.menudata.push({
+		name: "",
+		price: ""
+		});
+	}
 }
 
 
