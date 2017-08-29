@@ -4,7 +4,7 @@ $key = $_POST['key'];
 $key2 = $_POST['key2'];
 if ($filename) {
     move_uploaded_file($_FILES["file"]["tmp_name"],
-      "https://github.com/mis10312412xx/mytest/tree/master/image" . $filename);
+      "C:\Users\Public\Pictures\Sample Pictures/image" . $filename);
 }
 echo $key;
 echo $key2;
