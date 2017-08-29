@@ -17,8 +17,11 @@ function makemenu( $scope, $http)
 		price: ""
 		});
 	}
-	function deleteDishes(){
+	function deleteDishes(index){
 	     for(i in vm.menudata){
+		if(i==index){
+		  vm.menudata[i].name="";
+		}
 		if(vm.menudata[i].name!="" && i!=0)
 		{
 		   vm.temp.push(vm.menudata[i]);
