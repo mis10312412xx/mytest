@@ -1,6 +1,6 @@
 var app=angular.module('app',[]);
 app.controller("makemenu",makemenu);
-function makemenu( $scope, $http)
+function makemenu( $scope, $http, $window)
 {
 	var vm=this;
 	
