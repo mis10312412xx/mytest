@@ -32,7 +32,7 @@
 		  <input type="text" placeholder='名稱' ng-model="m.name" />
 		</td>
 		<td>
-		    <input type="text" placeholder='價格' ng-model="m.price" />
+		    <input type="text" placeholder='價格' ng-model="m.price"  onkeyup="return ValidateNumber($(this),value)"  />
 		</td>
 		<td>
 			<center><a class="btn btn-default" ng-click="vm.addDishes()">刪除一項</a></center>
@@ -41,5 +41,15 @@
            
  </table>
 </body>
-
+<SCRIPT LANGUAGE="JavaScript">
+//只能輸入數字
+ function ValidateNumber(e, pnumber)
+{
+    if (!/^\d+$/.test(pnumber))
+    {
+        $(e).val(/^\d+/.exec($(e).val()));
+    }
+    return false;
+}
+</script>
 </html>
