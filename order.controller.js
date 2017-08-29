@@ -6,31 +6,33 @@ function order( $scope, $http)
 	vm.addDishes=addDishes;
 	vm.deleteDishes=deleteDishes;
 	vm.saveDishes=saveDishes;
-	vm.menudata=[];
+	vm.orderdata=[];
 	vm.temp=[];
 	vm.savestate="y";
-	vm.menudata.push({
+	vm.orderdata.push({
 		name: "",
-		price: ""
+		price: "",
+		num: ""
 	});
 	function addDishes(){
-		vm.menudata.push({
+		vm.orderdata.push({
 		name: "",
-		price: ""
+		price: "",
+		num: ""
 		});
 	}
 	function deleteDishes(index){
 		vm.temp=[];
-	     for(i in vm.menudata){
+	     for(i in vm.orderdata){
 		if(i!=index){
-		   vm.temp.push(vm.menudata[i]);
+		   vm.temp.push(vm.orderdata[i]);
 		}
 	     }
-		vm.menudata=vm.temp;
+		vm.orderdata=vm.temp;
 	}
 	function saveDishes(){
-	  for(i in vm.menudata){
-		if(vm.menudata[i].name=="" || vm.menudata[i].price==""){
+	  for(i in vm.orderdata){
+		if(vm.orderdata[i].num==""){
 		     vm.savestate="n";
 		     alert("有欄位還沒填");
 		}
