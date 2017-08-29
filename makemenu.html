@@ -35,7 +35,7 @@
 		    <input type="text" placeholder='價格' ng-model="m.price"  onkeyup="return ValidateNumber($(this),value)"/>
 		</td>
 		<td>
-		  <center><a  ng-if="$index!=0" class="btn btn-default" ng-click="vm.deleteDishes()">刪除一項</a></center>
+		  <center><a  ng-if="$index!=0" class="btn btn-default" ng-click="vm.deleteDishes($index)">刪除一項</a></center>
 		</td>
 	</tr>
            
