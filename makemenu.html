@@ -36,8 +36,11 @@
 		</td>
 		<td>
 		<input id="img_input" type="file" accept="image/*"/>
-		    <label for="img_input"></label>
-		    <div class="preview_box"></div>
+		<label for="img_input"></label>
+		<div class="preview_box"></div>
+		.preview_box img {
+		  width: 200px;
+		}
 		</td>
 		<td>
 		  xxx
@@ -45,11 +48,7 @@
 	</tr>
            
  </table>
-</body>
-<scritp type="text/javascript">
-//选取一张图片，并预览
-
-$("#img_input").on("change", function(e) {
+$("#img_input").on("change", function(e){
 
   var file = e.target.files[0]; //获取图片资源
 
@@ -69,6 +68,6 @@ $("#img_input").on("change", function(e) {
     $(".preview_box").empty().append(img);
   }
 });
+</body>
 
-</script>
 </html>
