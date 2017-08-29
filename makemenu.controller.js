@@ -10,7 +10,6 @@ function makemenu( $scope, $http)
 		name: "",
 		price: ""
 	});
-	alert(vm.menudata);
 	function addDishes(){
 		vm.menudata.push({
 		name: "",
