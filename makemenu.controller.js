@@ -18,11 +18,12 @@ function makemenu( $scope, $http)
 		});
 	}
 	function deleteDishes(index){
+		vm.temp=[];
 	     for(i in vm.menudata){
 		if(i==index){
 		  vm.menudata[i].name="";
 		}
-		if(vm.menudata[i].name!="" && i!=0)
+		if(vm.menudata[i].name!="" || i==0)
 		{
 		   vm.temp.push(vm.menudata[i]);
 		}
