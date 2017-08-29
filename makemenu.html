@@ -9,8 +9,195 @@
  <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
  
 <body ng-controller="makemenu as vm">
-<h1>123</h1>
-    {{123+1}}
+<center>
+ <!--顯示cooupon-->
+ <table border="1px" ng-if="vm.show1">
+            <tr>
+              <th align="center">優惠券<br>名稱</th>
+              <th align="center">類型</th>
+              <th align="center" width="200px">優惠<br>內容</th>
+              <th align="center">消耗<br>點數</th>
+              <th align="center">優惠期間</th>
+              <th colspan="2"><center><a class="btn btn-default" ng-click="vm.addCoupon()">新增優惠券</a></center></td></th>
+            </tr>
+            <tr ng-repeat="data in vm.data">
+			<td>{{data.prmName}}</td>
+			<td ng-repeat="t in vm.typedata" ng-if="data.prmType==t.catID">{{t.catPro}}</td>
+			<td>{{data.prmCon}}</td>
+			<td>{{data.prmPoint}}</td>
+			<td>{{data.prmTime}}</td>
+			<td><a class="btn btn-default" ng-click="vm.editCoupon(data)">修改優惠券</a></td>
+			<td><a class="btn btn-default" ng-click="vm.deleteCoupon(data.prmID)">刪除優惠券</a></td>
+			</tr>
+ </table>
+ <!--修改-->
+ <form class="form-horizontal" ng-submit="vm.editsub()" ng-show="vm.show3">
+          <center>
+		    <h3>修改優惠券</h3>
+            <table > 
+              <tr>
+                <th width="80px" height="30px"><label>優惠名稱</label></th>
+                <td><input type="text" name="edprmName" id="edprmName" ng-model="vm.edprmName"  required></td>
+              </tr>
+              <tr>
+                <th height="30px"><label>優惠類型</label></th>
+                <td>
+                  <select id="edprmType" name="edprmType" ng-model="vm.edprmType">
+                    <option value="">-請選擇-</option>
+					<option ng-repeat="t in vm.typedata" value="{{t.catID}}" ng-if="t.catPro!='' && vm.edprmType=='0' &&  t.catID=='0'">{{t.catPro}}</option>
+                    <option ng-repeat="t in vm.typedata" value="{{t.catID}}" ng-if="t.catPro!='' &&  t.catID!='0' ">{{t.catPro}}</option>
+                  </select>
+                </td>
+              </tr>
+              <tr ng-if="vm.edprmType=='1'"  ng-repeat="eg in vm.gift">
+                <th rowspan="{{vm.gift.length}}" ng-if="$index==0">優惠贈品</th>
+                <td>
+				  <input type="text" placeholder='贈品名稱' ng-model="eg.giftname" />
+				  <input type="text" placeholder='贈品數量' ng-model="eg.giftnum" onkeyup="return ValidateNumber($(this),value)" />
+				  <button ng-if="$index==vm.gift.length-1" type="button" ng-click="vm.addgift()" >加入新贈品</button>
+				</td>
+              </tr>
+              <tr>
+                <th height="30px"><label>優惠期限</label></th>
+                <td>
+                  <input type="radio"  name="edtimeLim" id="edtimeLim" ng-model="vm.edtimeLim" value="0">限期　　<!---->
+                  <input type="radio"  name="edtimeLim" id="edtimeLim" ng-model="vm.edtimeLim" value="1">不限期
+                </td>
+              </tr>
+              <tr>
+                <th height="30px"><label>優惠期間</label></th>
+                <td>
+                  <input readonly type="text" style="width:100px" placeholder='開始時間' id="edprmStTime" ng-model="vm.edprmStTime" name="edprmStTime">
+                  <input readonly  ng-show="vm.edtimeLim=='0'" type="text" placeholder='結束時間' style="width:100px" id="edprmEdTime" ng-model="vm.edprmEdTime" name="edprmEdTime">
+                </td>
+              </tr>
+              <tr>
+                <th height="30px"><label>消耗點數</label></th>
+                <td><input type="text" name="edprmPoint" id="edprmPoint" ng-model="vm.edprmPoint" value=""  onkeyup="return ValidateNumber($(this),value)" required></td>
+              </tr>
+              <tr>
+                <th height="30px"><label>優惠內容</label></th>
+                <td><textarea rows="4" cols="30" name="edprmCon" id="edprmCon" ng-model="vm.edprmCon"  required></textarea></td>
+              </tr>
+            </table>
+            <input  type="submit" value="儲存">
+            <input type="button" ng-click="vm.backViewCoupon()" value="回前頁">
+          </center>
+        </form>
+<!--新增-->
+<form class="form-horizontal" ng-submit="vm.addsub()" ng-show="vm.show2">
+          <center>
+		      <h3>新增優惠券</h3>
+            <table>
+              <tr>
+                <th width="80px" height="30px"><label>優惠名稱</label></th>
+                <td><input type="text" name="prmName" id="prmName" ng-model="vm.prmName" value=""  required></td>
+              </tr>
+              <tr>
+                <th height="30px"><label>優惠類型</label></th>
+                <td>
+                  <select id="prmType" name="prmType" ng-model="vm.prmType">
+                    <option value="">-請選擇-</option>
+                    <option ng-repeat="t in vm.typedata" value="{{t.catID}}" ng-if="t.catPro!='' && t.catID!='0'">{{t.catPro}}</option>
+                  </select>
+                </td>
+              </tr>
+              <tr ng-if="vm.prmType==='1'"  ng-repeat="g in vm.gift">
+                <th rowspan="{{vm.gift.length}}" ng-if="$index==0">優惠贈品</th>
+                <td>
+				  <input type="text" placeholder='贈品名稱' ng-model="g.giftname"  required />
+				  <input type="text" placeholder='贈品數量' ng-model="g.giftnum"  required onkeyup="return ValidateNumber($(this),value)" />
+				  <button ng-if="$index==vm.gift.length-1" type="button" ng-click="vm.addgift()" >加入新贈品</button>
+				</td>
+              </tr>
+              <tr>
+                <th height="30px"><label>優惠期限</label></th>
+                <td>
+                  <input type="radio"  name="timeLim" id="timeLim" ng-model="vm.timeLim" value="0">限期　
+                  <input type="radio"  name="timeLim" id="timeLim" ng-model="vm.timeLim" value="1">不限期
+                </td>
+              </tr>
+              <tr>
+                <th height="30px"><label>優惠期間</label></th>
+                <td>
+                  <input readonly type="text" style="width:100px" placeholder='開始時間' id="prmStTime" ng-model="vm.prmStTime" name="prmStTime">
+                  <input readonly  ng-show="vm.timeLim=='0'" type="text" placeholder='結束時間' style="width:100px" id="prmEdTime" ng-model="vm.prmEdTime" name="prmEdTime">
+                </td>
+              </tr>
+              <tr>
+                <th height="30px"><label>消耗點數</label></th>
+                <td><input type="text" name="prmPoint" id="prmPoint" ng-model="vm.prmPoint" value=""  onkeyup="return ValidateNumber($(this),value)" required></td>
+              </tr>
+              <tr>
+                <th height="30px"><label>優惠內容</label></th>
+                <td><textarea rows="4" cols="30" name="prmCon" id="prmCon" ng-model="vm.prmCon"  required></textarea></td>
+              </tr>
+            </table>
+            <input  type="submit" value="儲存">
+            <input type="button" ng-click="vm.backViewCoupon()" value="回前頁">
+          </center>
+        </form>
+ </center>
+ </div>
+ 
+<script>
+	  $.datepicker.setDefaults({
+		dayNames:["星期日","星期一","星期二","星期三","星期四","星期五","星期六"],
+		dayNamesMin:["日","一","二","三","四","五","六"],
+		monthNames:["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月"],
+		monthNamesShort:["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月"],
+		showMonthAfterYear:true
+	  });
+	  
+	  var year = new Date().getFullYear();
+	  $(function() {
+		$( "#prmStTime" ).datepicker({
+		  changeYear:true,
+		  changeMonth:true,
+		  yearRange:year+":"+year+1,
+		  minDate:"0"
+		});
+	  });
+	   $(function() {
+		$( "#prmEdTime" ).datepicker({
+		  changeYear:true,
+		  changeMonth:true,
+		  yearRange:year+":"+year+1,
+		  minDate:"0"
+		});
+	  });
+	  $(function() {
+		$( "#edprmStTime" ).datepicker({
+		  changeYear:true,
+		  changeMonth:true,
+		  yearRange:year+":"+year+1,
+		  minDate:"0"
+		});
+	  });
+	  $(function() {
+		$( "#edprmEdTime" ).datepicker({
+		  changeYear:true,
+		  changeMonth:true,
+		  yearRange:year+":"+year+1,
+		  minDate:"0"
+		});
+	  });
+	  
+	  
+</script>
+
+<SCRIPT LANGUAGE="JavaScript">
+//只能輸入數字
+ function ValidateNumber(e, pnumber)
+{
+    if (!/^\d+$/.test(pnumber))
+    {
+        $(e).val(/^\d+/.exec($(e).val()));
+    }
+    return false;
+}
+</script>
+
 </body>
 
 </html>
