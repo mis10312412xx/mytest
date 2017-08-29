@@ -20,12 +20,11 @@ function makemenu( $scope, $http)
 	}
 	function deleteDishes(){
 	     for(i in vm.menudata){
-		if(vm.menudata[i].name!="")
+		if(vm.menudata[i].name!="" && i!=0)
 		{
 		   vm.temp.push(vm.menudata[i]);
 		}
 	     }
-		alert (vm.temp);
 		vm.menudata=vm.temp;
 	}
 	
